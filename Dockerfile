@@ -49,6 +49,14 @@ RUN set -xe \
     && rm -rf /var/lib/apt/lists/* \
     && fc-cache –fv 
 
+# Установим поддержку русского языка
+RUN apt-get update \
+ && apt-get install -y language-pack-ru
+
+ENV LANGUAGE ru_RU.UTF-8
+ENV LANG ru_RU.UTF-8
+ENV LC_ALL ru_RU.UTF-8
+
 ARG onec_uid="1000"
 ARG onec_gid="1000"
 
