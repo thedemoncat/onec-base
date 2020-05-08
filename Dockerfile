@@ -2,6 +2,7 @@ FROM ubuntu:bionic
 
 ENV DEBIAN_FRONTEND noninteractive
 
+# Установим поддержку русского языка
 RUN set -xe \
     && apt-get update \
     && apt install -y --no-install-recommends \
@@ -9,8 +10,14 @@ RUN set -xe \
         apt-transport-https \
         locales \
         wget \
+        language-pack-ru \
     && rm -rf /var/lib/apt/lists/* \
     && localedef -i ru_RU -c -f UTF-8 -A /usr/share/locale/locale.alias ru_RU.UTF-8
+
+ENV LANGUAGE ru_RU.UTF-8
+ENV LANG ru_RU.UTF-8
+ENV LC_ALL ru_RU.UTF-8
+
 
 # Опциональные зависимости Linux (см. ИТС)
 # Разработка и администрирование - 1С:Предприятие <версия> документация
@@ -48,14 +55,6 @@ RUN set -xe \
     && mv /usr/share/fonts/truetype/msttcorefonts_/ /usr/share/fonts/truetype/msttcorefonts/ \
     && rm -rf /var/lib/apt/lists/* \
     && fc-cache –fv 
-
-# Установим поддержку русского языка
-RUN apt-get update \
- && apt-get install -y language-pack-ru
-
-ENV LANGUAGE ru_RU.UTF-8
-ENV LANG ru_RU.UTF-8
-ENV LC_ALL ru_RU.UTF-8
 
 ARG onec_uid="1000"
 ARG onec_gid="1000"
