@@ -11,12 +11,7 @@ RUN set -xe \
         locales \
         wget \
         language-pack-ru \
-    && rm -rf /var/lib/apt/lists/* \
-    && localedef -i ru_RU -c -f UTF-8 -A /usr/share/locale/locale.alias ru_RU.UTF-8
-
-ENV LANGUAGE ru_RU.UTF-8
-ENV LANG ru_RU.UTF-8
-ENV LC_ALL ru_RU.UTF-8
+    && rm -rf /var/lib/apt/lists/* 
 
 
 # Опциональные зависимости Linux (см. ИТС)
