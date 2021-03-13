@@ -3,4 +3,4 @@
 
 Благодарности
 
-- Идлея черпалась из этого репозитария - https://github.com/Infactum/onec_dock.git
+- Идея черпалась из этого репозитария - https://github.com/Infactum/onec_dock.git
