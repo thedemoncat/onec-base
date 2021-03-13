@@ -16,12 +16,12 @@ jobs:
     - uses: actions/checkout@v2
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag thedemoncat/onec-base/onec_base:latest
-      
+
     - name: Push to GitHub Packages
       uses: docker/build-push-action@v1
       with:
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
         registry: docker.pkg.github.com
-        repository: thedemoncat/onec-base/onec_base:latest
+        repository: thedemoncat/onec-base/onec_base
         tag_with_ref: true
