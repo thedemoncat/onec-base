@@ -31,5 +31,5 @@ jobs:
           file: Dockerfile
           push: true
           tags: |
-            ghcr.io/thedemoncat/onec-base/onec_base:latest
+            ghcr.io/thedemoncat/onec_base:latest
 
