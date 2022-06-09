@@ -65,3 +65,8 @@ ADD https://github.com/tianon/gosu/releases/download/$gosu_ver/gosu-amd64 /bin/g
 
 RUN chmod +x /bin/gosu
 
+RUN sed -i '/ru_RU.UTF-8/s/^# //g' /etc/locale.gen && \
+    locale-gen
+ENV LANG en_US.UTF-8  
+ENV LANGUAGE en_US:en  
+ENV LC_ALL en_US.UTF-8  
